@@ -28,98 +28,28 @@ class Result {
 
     public static long carParkingRoof(List<Long> cars,int k) {
 
+        long roof =0;
+        long roof_length=0;
         int n = cars.size();
         Collections.sort(cars);
-        List<Long> end = new ArrayList<>();
-
-
-//        for (int i = 0; i < n; i++) {
-//
-//            System.out.println(cars.get(i));
-//        }
-
-        for (int i = 0; i < n; i++) {
-            List<List<Long>> allCars = new ArrayList<>();
-            for (int j = 0; j < n; j++) {
-
-                List<Long> c = new ArrayList<>();
-                if (cars.get(i) <= cars.get(j)) {
-
-                    c.add(cars.get(j));
-                    c.add(cars.get(j) - cars.get(i));
-                } else {
-                    c.add(cars.get(j));
-                    c.add(cars.get(i) - cars.get(j));
-                }
-
-                allCars.add(c);
-
-
+        int times=n-k+1;
+        int i=0;
+        while(i<times){
+            roof = Collections.max(cars.subList(i,i+k)) - Collections.min(cars.subList(i,i+k));
+            if(i==0){
+                roof_length=roof+1;
             }
 
-            end.add(sortedCarDis(allCars,k));
-            Collections.sort(end);
-
-
-        }
-        System.out.print(end.get(0)+" ");
-
-        return end.get(0);
-
-
-    }
-
-    public static long sortedCarDis(List<List<Long>> allcars,int k) {
-        int n = allcars.size();
-        long roof_length = 0 ;
-
-
-        for(int i=0 ; i<n ; i++){
-
-            for(int j = 0 ; j<n ; j++){
-
-                if(allcars.get(i).get(1) <= allcars.get(j).get(1)){
-                    List<Long> backup = new ArrayList<>();
-                    backup = allcars.get(i);
-                    Collections.replaceAll(allcars, allcars.get(i), allcars.get(j));
-                    allcars.set(j, backup);
-                }
-            }
-        }
-
-        long max = allcars.get(0).get(0) ;
-        int indice_max = 0;
-        long min = allcars.get(0).get(0) ;
-        int indice_min = 0;
-
-
-
-        for(int i = 0 ; i<k ; i++){
-
-
-            if(max<=allcars.get(i).get(0)){
-                max=allcars.get(i).get(0);
-                indice_max = i;
+            if(roof_length>roof+1){
+                roof_length=roof+1;
 
             }
-            if(min>=allcars.get(i).get(0)){
-                min=allcars.get(i).get(0);
-                indice_min=i;
-
-            }
-        };
-
-        if(allcars.get(indice_max).get(0)< allcars.get(indice_min).get(0)){
-
-            roof_length = allcars.get(indice_min).get(0) - allcars.get(indice_max).get(0) +1;
-        }
-        else{
-            roof_length = allcars.get(indice_max).get(0) - allcars.get(indice_min).get(0) +1;
+            i++;
 
         }
+
 
         return roof_length;
-
     }
 }
 
