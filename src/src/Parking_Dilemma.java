@@ -25,23 +25,17 @@ class Result {
      *  2. INTEGER k
      */
 
-
-    public static long carParkingRoof(List<Long> cars,int k) {
-
-        long roof =0;
-        long roof_length=0;
-        int n = cars.size();
+    public static long carParkingRoof(List<Long> cars, int k) {
         Collections.sort(cars);
-        int times=n-k+1;
-        int i=0;
-        while(i<times){
-            roof = Collections.max(cars.subList(i,i+k)) - Collections.min(cars.subList(i,i+k));
-            if(i==0){
-                roof_length=roof+1;
-            }
-
-            if(roof_length>roof+1){
-                roof_length=roof+1;
+        long roof = 0;
+        int n = cars.size();
+        long roof_length = cars.get(n - 1);
+        int times = n - k + 1;
+        int i = 0;
+        while (i < times) {
+            roof = cars.subList(i, i + k).get(k - 1) - cars.subList(i, i + k).get(0);
+            if (roof_length > roof + 1) {
+                roof_length = roof + 1;
 
             }
             i++;
