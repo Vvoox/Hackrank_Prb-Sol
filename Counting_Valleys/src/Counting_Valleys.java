@@ -3,30 +3,23 @@ import java.util.List;
 
 public class Counting_Valleys {
 
-
     static int countingValleys(int n, String s) {
         int valley = 0;
         int numberOfValley = 0;
 
-        String[] tab = s.split("");
-        for (int i = 0; i < tab.length; i++) {
-            List<Integer> ls= new ArrayList<>();
-            if(valley){
-
-            }
 
 
-            if (tab[i].equals("D")) {
+        for (int i = 0; i <n; i++) {
+
+            if (s.charAt(i) == 'D') {
                 valley -= 1;
             }
-            if (tab[i].equals("U")) {
+            if (s.charAt(i) == 'U'){
                 valley += 1;
             }
-            System.out.println(valley);
-            if(tab[i].equals("U") && valley==0){
+            if(valley==0 && s.charAt(i) == 'U'){
                 numberOfValley+=1;
             }
-
 
 
         }
