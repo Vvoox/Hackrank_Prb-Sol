@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Counting_Valleys/Counting_Valleys.iml" filepath="$PROJECT_DIR$/Counting_Valleys/Counting_Valleys.iml" />
       <module fileurl="file://$PROJECT_DIR$/Hackrank_Prb-Sol.iml" filepath="$PROJECT_DIR$/Hackrank_Prb-Sol.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Jumping_on_the_Clouds/Jumping_on_the_Clouds.iml" filepath="$PROJECT_DIR$/Jumping_on_the_Clouds/Jumping_on_the_Clouds.iml" />
       <module fileurl="file://$PROJECT_DIR$/src/src.iml" filepath="$PROJECT_DIR$/src/src.iml" />
     </modules>
   </component>
