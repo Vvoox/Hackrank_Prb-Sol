@@ -12,36 +12,45 @@ public class Repeated_String {
         int div =(int) n/len;
         int ln = div*len;
         int rest =(int) n-ln;
-        System.out.println(rest);
         for(int i = 0 ; i<ln ; i+=len){
-            System.out.println("times:"+i);
             for(int j=0 ; j<len ; j++){
 
                 result[i+j]=tab[j];
-                System.out.println(result[j]);
 
 
             }
 
         }
-
-        for(int j = 0 ; j<n ; j++){
-            System.out.print(result[j]);
+        for(int i=0 ; i<rest ; i++){
+            result[ln+i]=tab[i];
         }
+
+        res = calcul(result,"a");
+        System.out.println(res);
+
 
         return res;
 
+    }
+    public static int calcul(String[] tab , String caracter ){
+        int n = tab.length;
+        int count = 0 ;
+        for(int i=0 ;i<n ; i++){
+            if(tab[i].equals(caracter)){
+                count+=1;
+            }
+        }
+        return count;
     }
 
 
     public static void main(String[] args) throws IOException {
 
-        int n= 10;
-        String s = "abcd";
+        long n= 1000000000000;
+        String s = "a";
 
 
         long result = repeatedString(s, n);
-//        System.out.println(result);
 
     }
 }
