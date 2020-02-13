@@ -11,18 +11,24 @@ class Solution {
             if(i==n-1){
                 break;
             }
-
-
             if(c[i+1]==0){
                 if(i+1==n-1){
                     jump+=1;
                     break;
                 }
-                if(c[i+2]==0 && (i+2)<n-1){
+                if(c[i+2]==0){
+                    if(i+2==n-1){
+                        jump+=1;
+                        break;
+                    }
                     jump+=1;
                     i+=2;
                 }
                 if(c[i+2]==1){
+                    if(i+2==n-1){
+                        jump+=1;
+                        break;
+                    }
                     jump+=1;
                     i+=1;
                 }
