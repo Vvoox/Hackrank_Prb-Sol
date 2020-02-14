@@ -9,27 +9,26 @@ public class Repeated_String {
         int l = (int)n;
         String[] tab = s.split("");
         String[] result = new String[l];
-        int div =(int) n/len;
-        int ln = div*len;
-        int rest =(int) n-ln;
-        for(int i = 0 ; i<n ; i+=len){
-            for(int j=0 ; j<len ; j++){
+        int j=0;
+        for(int i = 0 ; i<l; i++){
+            if( calcul(tab,"a")==len ){
+                res = len*n;
+                break;
+            }
 
-                if((i+j)==n-1){
-                    break;
-                }
-                result[i+j]=tab[j];
+            result[i]=tab[j];
+
+            j++;
+            if(j==len) {
+                j=0;
+            }
+            if(i==n-1){
+                res = calcul(result,"a");
 
             }
 
-        }
-//        res = calcul(result,"a");
-        for(int i =0 ; i<n ; i++){
-            System.out.println(result[i]);
-        }
-        System.out.println(res);
 
-
+        }
         return res;
 
     }
@@ -47,7 +46,7 @@ public class Repeated_String {
 
     public static void main(String[] args) throws IOException {
 
-        long n= 1000000000000;
+        long n= 100000000;
         String s = "a";
 
 
