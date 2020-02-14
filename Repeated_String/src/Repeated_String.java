@@ -12,20 +12,21 @@ public class Repeated_String {
         int div =(int) n/len;
         int ln = div*len;
         int rest =(int) n-ln;
-        for(int i = 0 ; i<ln ; i+=len){
+        for(int i = 0 ; i<n ; i+=len){
             for(int j=0 ; j<len ; j++){
 
+                if((i+j)==n-1){
+                    break;
+                }
                 result[i+j]=tab[j];
-
 
             }
 
         }
-        for(int i=0 ; i<rest ; i++){
-            result[ln+i]=tab[i];
+//        res = calcul(result,"a");
+        for(int i =0 ; i<n ; i++){
+            System.out.println(result[i]);
         }
-
-        res = calcul(result,"a");
         System.out.println(res);
 
 
