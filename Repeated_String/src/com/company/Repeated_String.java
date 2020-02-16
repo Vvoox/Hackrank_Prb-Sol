@@ -43,6 +43,7 @@ public class Repeated_String implements Serializable{
     }
     public static int calcul(String[] tab){
         int calcul= 0;
+
         for(int i=0 ; i<tab.length ; i++){
             if(tab[i].equals("a")){
                 calcul+=1;
